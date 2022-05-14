@@ -6,3 +6,6 @@
 * I’m interested in how to make IT based service.
 <br/>
 <br/>
+
+안녕하세요 통계학과 20학번 이소희입니다.
+
