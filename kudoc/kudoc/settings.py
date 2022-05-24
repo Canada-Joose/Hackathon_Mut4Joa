@@ -166,6 +166,24 @@ LOGIN_REDIRECT_URL = "index"
 
 #ACCOUNT_LOGOUT_ON_GET의 기본값이 False인데, True로 바꿔주면, 바로 로그아웃됨.
 ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+# ACCOUNT_AUTHNTICATION_METHOD = "username_email"의 경우 유저네임 이메일로 동시에 가입가능
+
+# 이메일 필수로 받기
+ACCOUNT_EMAIL_REQUIRED = True
+# 유저네임 필수로 받지 않기
+ACCOUNT_USERNAME_REQUIRED = False
+
+#세션을 브라우져를 닫았을 때도 기억해주겠다에 해당하는 것
+#기본값은 false
+ACCOUNT_SESSION_REMEMBER = True
+
+'''
+세션 쿠키의 기본값은 2주, 
+초단위, 3600초 1시간
+SESSION_COOKIE_AGE = 3600
+'''
+
 
 #EMail settings
 
