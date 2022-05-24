@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'appAccount',
     'appMain',
-    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -47,16 +47,14 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 ]
 
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+#django.contrib.sites 장고 여러 기능을 장고 웹사이트 내에서 사용할 수 있도록 해준다.
+#장고 웹사이트 하나로 여러 웹사이트를 운영할 수 있다. 
+
+#SITE_ID는 각각의 사이트 아이디라고 생각하면 된다. 
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL="/"
+# LOGIN_REDIRECT_URL="/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -139,9 +137,26 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-LOGIN_URL = 'login'
+# LOGIN_URL = 'login'
 
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+
+#Auth Settingss
+
+AUTH_USER_MODEL = "appAccount.User"
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+
+#EMail settings
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
