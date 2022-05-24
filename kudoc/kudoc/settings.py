@@ -54,7 +54,6 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-# LOGIN_REDIRECT_URL="/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -147,8 +146,11 @@ STATIC_URL = '/static/'
 
 #Auth Settingss
 
+#user db account에 있는 db로 통일시키기
 AUTH_USER_MODEL = "appAccount.User"
 
+
+#Auth 유저 정보 자동으로 만들어주기 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -156,6 +158,14 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+#회원가입하고, 다시 홈페이지로 돌아오도록 만들기
+ACCOUNT_SIGNUP_REDIRECT_URL = "index"
+
+#로그인하고, 다시 홈페이지로 돌아오도록 만들기
+LOGIN_REDIRECT_URL = "index"
+
+#ACCOUNT_LOGOUT_ON_GET의 기본값이 False인데, True로 바꿔주면, 바로 로그아웃됨.
+ACCOUNT_LOGOUT_ON_GET = True
 
 #EMail settings
 
