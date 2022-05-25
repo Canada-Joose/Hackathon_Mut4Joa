@@ -1,5 +1,7 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
+from datetime import datetime
+from django.http import Http404
 # Create your views here.
 def index(request):
     # print(request.user.email)
@@ -17,3 +19,18 @@ def index(request):
     # true or false로 판별됨
 
     return render(request, "appMain/index.html")
+
+
+def profile(request):
+    return render(request, "appMain/profile.html")
+
+
+def profileEdit(request):
+    return render(request, "appMain/profileEdit.html")
+
+
+def notice(request):
+    return render(request, "appMain/notice.html")
+
+def noticeDetail(request):
+    return render(request, "appMain/noticeDetail.html")

@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.google',
+    'phonenumber_field',
+    'phonenumbers',
 ]
 
 #django.contrib.sites 장고 여러 기능을 장고 웹사이트 내에서 사용할 수 있도록 해준다.
@@ -119,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -174,6 +176,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 # 유저네임 필수로 받지 않기
 ACCOUNT_USERNAME_REQUIRED = False
 
+#signup할 때, 여기를 참조하라는 것 
+ACCOUNT_SIGNUP_FORM_CLASS = "appAccount.forms.SignupForm"
+
 #세션을 브라우져를 닫았을 때도 기억해주겠다에 해당하는 것
 #기본값은 false
 ACCOUNT_SESSION_REMEMBER = True
@@ -187,4 +192,11 @@ SESSION_COOKIE_AGE = 3600
 
 #EMail settings
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+#gmail smtp를 연결하기 위한 것
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = "toyoalsrl@likelion.org"
+EMAIL_HOST_PASSWORD = "52371951"
