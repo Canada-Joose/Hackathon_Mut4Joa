@@ -22,8 +22,9 @@ class User(AbstractUser):
     #unique=True 유일한 값으로 변경해주기
     #null=True빈값 입력가능하도록 하기
     department = models.CharField(max_length=30, null=True, default='')
-    nickname = models.CharField(max_length=15, unique=True, null=True, default='') 
-    # phone = models.IntegerField(null=True)
+    nickname = models.CharField(max_length=15, unique=True, null=True, default='', error_messages={'unique': '이미 사용중인 닉네임입니다.'}) 
+    #nickname = models.CharField(max_length=15, unique=True, null=True, default='', error_messages={'unique': '이미 사용중인 닉네임입니다.}) 
+    
     phone_number = PhoneNumberField(null=True)
     
 
@@ -35,7 +36,7 @@ class User(AbstractUser):
     is_premier = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.email
+        return self.nickname
 
     # def get_absolute_url(self):
     #     return reverse("index")

@@ -183,6 +183,17 @@ ACCOUNT_SIGNUP_FORM_CLASS = "appAccount.forms.SignupForm"
 #기본값은 false
 ACCOUNT_SESSION_REMEMBER = True
 
+#오류가 나도 True로 해줌
+ACCOUT_PASSWORD_INPUT_RENDER_VALUE = True
+
+# 이메일 인증 안 해도 됨
+# ACCOUNT_EMAIL_VARIFICATION = "optional"
+# 이메일 인증 메일 사용 안 해도 됨
+# ACCOUNT_EMAIL_VARIFICATION = "none"
+# 이메일을 의무적으로 해야함
+# ACCOUNT_EMAIL_VARIFICATION = "mandatory"
+
+
 '''
 세션 쿠키의 기본값은 2주, 
 초단위, 3600초 1시간

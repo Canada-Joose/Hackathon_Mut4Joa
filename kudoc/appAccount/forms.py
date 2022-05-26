@@ -14,7 +14,7 @@ class SignupForm(forms.ModelForm):
     class Meta:
         model = User
         #추가해준 필드만 가져오면 됨.
-        fields = ("nickname", "department", "phone_number", "email_period")
+        fields = ("nickname", "department", "phone_number", "email_period", "category",)
 
         widgets = {
             # 'email_period': forms.Select(choices=choices, attrs={'class':'form-control'}),
@@ -27,7 +27,7 @@ class SignupForm(forms.ModelForm):
     def signup(self, request, user):
         #form이 기입된 데이터는 cleaned_data로 가져올 수 있다.
         user.nickname = self.cleaned_data['nickname']
-        # user.category = self.cleaned_data['category']
+        user.category = self.cleaned_data['category']
         user.phone_number = self.cleaned_data['phone_number']
         user.department = self.cleaned_data['department']
         user.email_period = self.cleaned_data['email_period']

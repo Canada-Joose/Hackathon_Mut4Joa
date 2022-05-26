@@ -5,14 +5,13 @@
 {% if user.is_authenticated %}
     <p>유저 이름 {{user}}님!</p>
     <p>유저 이메일 {{user.email}}님!</p>
-    <p>유저 이메일 {{user.name}}님!</p>
     <p>이메일 전송기간 {{user.email_period}}일</p>
     <p>관심사 {{user.category}}</p>
     <p>전화번호 {{user.phone_number}}</p>
     {% if user.is_active %}
-    <p>구독 취소</p>
-    {% else %}
     <p>구독 중</p>
+    {% else %}
+    <p>구독 취소</p>
     {% endif %}
     {% if user.is_premier  %}
     <p>유료 회원</p>
@@ -25,4 +24,4 @@
 
 
 <a href="{% url 'index' %}">홈으로 이동</a>
-<a href="{% url 'profileEdit' %}">홈으로 이동</a>
+<a href="{% url 'profileEdit' %}">프로필 편집</a>
