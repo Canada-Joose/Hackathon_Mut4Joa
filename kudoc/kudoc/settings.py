@@ -183,15 +183,23 @@ ACCOUNT_SIGNUP_FORM_CLASS = "appAccount.forms.SignupForm"
 #기본값은 false
 ACCOUNT_SESSION_REMEMBER = True
 
-#오류가 나도 True로 해줌
+#회원가입 당시 password오류가 나도 비밀번호를 그대로 채워줌
 ACCOUT_PASSWORD_INPUT_RENDER_VALUE = True
+
+#이메일 관련
+
+#유저가 로그인 되었을 때, 이메일 인증
+ACCOUT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
+
+#유저가 로그인되지 않았을 때, 이메일 인증
+ACCOUT_EMAIL_CONFIRMATION_ANOYMOUS_REDIRECT_URL = "account_email_confirmation_done"
 
 # 이메일 인증 안 해도 됨
 # ACCOUNT_EMAIL_VARIFICATION = "optional"
 # 이메일 인증 메일 사용 안 해도 됨
 # ACCOUNT_EMAIL_VARIFICATION = "none"
 # 이메일을 의무적으로 해야함
-# ACCOUNT_EMAIL_VARIFICATION = "mandatory"
+ACCOUNT_EMAIL_VARIFICATION = "mandatory"
 
 
 '''
