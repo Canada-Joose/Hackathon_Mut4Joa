@@ -1,3 +1,30 @@
+{% extends 'appMain/base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'appMain/home_.css' %}" />
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="liner">
+
+</div>
+
+{% endblock content %}
+
+
+
+
+{% block button %}
+
+<div>
+
+</div>
+
+{% endblock button %}
+
 <navbar>
     {% if user.is_authenticated %}
      <a href="{% url 'account_logout' %}">로그아웃</a>

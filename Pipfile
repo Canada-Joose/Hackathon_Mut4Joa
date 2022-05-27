@@ -9,6 +9,7 @@ django-allauth = "*"
 django-phonenumber-field = "*"
 django-phonenumbers = "*"
 django-phone-verify = "==0.1.1"
+django-widget-tweaks = "*"
 
 [dev-packages]
 

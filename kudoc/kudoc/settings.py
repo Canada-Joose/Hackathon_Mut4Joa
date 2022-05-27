@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    #생성 app
     'appAccount',
     'appMain',
+    #input tag 수정하기 위한 패키지
+    'widget_tweaks',
+    #allauth 세팅
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
