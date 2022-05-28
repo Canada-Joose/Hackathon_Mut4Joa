@@ -177,7 +177,7 @@ def sendCategoryMail(request):
 
 
 
-    return redirect('index')
+    return redirect('profile')
 
 '''
 class User(AbstractUser):
