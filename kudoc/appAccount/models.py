@@ -62,6 +62,7 @@ class Notice(models.Model):
     category = models.ForeignKey(Category_Item, models.CASCADE, related_name="notice_categorys", null=True, default='')
     content = models.ForeignKey(Notice_content, models.CASCADE, related_name="notice_contents", null=True, default='')
     post_date = models.DateField(auto_now_add=True)
+    source = models.CharField(max_length=255,null=True, default='')
 
     def __str__(self):
         return self.title

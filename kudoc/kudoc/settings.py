@@ -221,5 +221,5 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = "toyoalsrl@likelion.org"
-EMAIL_HOST_PASSWORD = "52371951"
+EMAIL_HOST_USER = "kudocjoayo@gmail.com"
+EMAIL_HOST_PASSWORD = "kudoc1234"

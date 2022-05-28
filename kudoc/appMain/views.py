@@ -2,8 +2,13 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from datetime import datetime
 from django.http import Http404
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from datetime import datetime
+from django.utils.dateformat import DateFormat
 from appAccount.models import *
 from django.contrib.auth.decorators import login_required
+from datetime import date
 # Create your views here.
 def index(request):
     # toyo30@naver.com 가 출력된다. 
@@ -20,9 +25,36 @@ def index(request):
     # true or false로 판별됨
     notices = Notice.objects.all()
 
+    today = datetime.today().strftime("%Y%m%d") 
+    
+    today = today[0:4] + '년 ' + today[4:6] + '월 ' + today[6:] + '일'
 
-    return render(request, "appMain/index.html", {"notices":notices,}
+    user_nickname = request.user.nickname
+    notice_length = len(notices)
+
+
+    
+    email = EmailMessage(
+    'kudocjoayo@gmail.com',     
+    render_to_string('appMain/emailform.html', {
+        'notices':notices,
+        "today": today,
+        'notice_length':notice_length,
+        'user_nickname':'재원',
+        }),
+    # 보내는 이메일 (settings에서 설정해서 작성안해도 됨)
+    to=['toyo30@naver.com'],  # 받는 이메일 리스트
+
     )
+    email.content_subtype= 'html'
+    email.send()
+    
+    return render(request, "appMain/index.html", {
+        "notices":notices,
+        
+        }
+    )
+    
 
 
 @login_required(login_url="/login")

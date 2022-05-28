@@ -1,18 +1,18 @@
 import sys
 import csv
 import os
-import django
+
 from datetime import date
-from appAccount.models import Category_Item
-from appAccount.models import Notice
+# from appAccount.models import Category_Item
+# from appAccount.models import Notice
 # 환경 변수 설정
 # sys.path.append("/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc")
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kudoc.settings")
-
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kudoc.settings")
+import django
 # django.setup()
 
 
-print(date.today())
+# print(date.today())
 
 # mainApp 폴더에 존재하는 models.py에서 Building 모델을 불러온다
 
@@ -24,9 +24,9 @@ print(date.today())
 # print(categorys_items[0])
 
 # 통계학과 링크
-depart_link = "https://stat.korea.ac.kr/stat/community/notice_under.do"
+depart_link = "https://portal.korea.ac.kr/front/Intro.kpd"
 
-with open('/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc/statistics.csv', encoding='UTF-8') as f:
+with open('/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc/portalnotice.csv', encoding='UTF-8') as f:
     reader = csv.reader(f)
     for row in reader:
         # row[0] 이것은 타이틀입니다.
@@ -43,6 +43,9 @@ with open('/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc/stat
 
         depart_name = row[3].strip('<i>')
         depart_name = depart_name.rstrip('</')
+        print(row[0])
+        # print(row[1])
+        # print(row[2])
 
         # pk_num = 0
 
@@ -63,9 +66,9 @@ with open('/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc/stat
 
         # Category_Item.objects.filter('')
 
-        _, created = Notice.objects.get_or_create(
-            title=row[0],
-            link=depart_link + row[1],
-            # category = category,
-            # post_date = date.today(),
-        )
+        # _, created = Notice.objects.get_or_create(
+        #     title=row[0],
+        #     link=depart_link + row[1],
+        #     # category = category,
+        #     # post_date = date.today(),
+        # )
