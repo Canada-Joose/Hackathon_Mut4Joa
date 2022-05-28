@@ -10,6 +10,8 @@ items = Category_Item.objects.all().values_list('item', 'item')
 # modles from은 사용할 모델을 만들면, 모델에 따라서 다르게 만드는 것이다.
 
 
+
+
 class SignupForm(forms.ModelForm):
     class Meta:
         model = User
