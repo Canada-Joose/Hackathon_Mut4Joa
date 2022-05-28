@@ -1,3 +1,5 @@
+from appAccount.models import Category_Item
+from appAccount.models import Notice
 import sys
 import csv
 import os
@@ -14,17 +16,15 @@ django.setup()
 print(date.today())
 
 # mainApp 폴더에 존재하는 models.py에서 Building 모델을 불러온다
-from appAccount.models import Notice
-from appAccount.models import Category_Item
 
-categorys_items = Category_Item.objects.all()
+# categorys_items = Category_Item.objects.all()
 
 
 # print(categorys_items)
 
 # print(categorys_items[0])
 
-#통계학과 링크
+# 통계학과 링크
 depart_link = "https://stat.korea.ac.kr/stat/community/notice_under.do"
 
 with open('/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc/statistics.csv', encoding='UTF-8') as f:
@@ -41,21 +41,20 @@ with open('/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc/stat
         # dateformat = '%Y-%m-%d %H:%M:%S'
         # newDate = datetime.strptime(str_datetime, dateformat)
         # print(str_datetime)
-        
 
         depart_name = row[3].strip('<i>')
         depart_name = depart_name.rstrip('</')
 
-        pk_num = 0
+        # pk_num = 0
 
-        for i in categorys_items:
-            if(i.item==depart_name):
-                pk_num = i.pk
-        
-        print(pk_num)
-        
-        category = Category_Item.objects.get(pk=9)
-        print(type(category))
+        # for i in categorys_items:
+        #     if(i.item == depart_name):
+        #         pk_num = i.pk
+
+        # print(pk_num)
+
+        # category = Category_Item.objects.get(pk=9)
+        # print(type(category))
 
         # category_depart = categorys_items.get(pk=1)
         # print(category_depart)
@@ -66,8 +65,8 @@ with open('/Users/baegmingi/Desktop/일기/Hackathon_Mut4Joa/kudoc/stat
         # Category_Item.objects.filter('')
 
         _, created = Notice.objects.get_or_create(
-            title = row[0],
-            link = depart_link + row[1],
-            category = category, 
-            post_date = date.today(), 
+            title=row[0],
+            link=depart_link + row[1],
+            # category = category,
+            # post_date = date.today(),
         )
