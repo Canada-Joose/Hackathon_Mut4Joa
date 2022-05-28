@@ -12,30 +12,30 @@
 <h1>공지사항</h1>
 <div class="convert_to_row">
     <div class="notice_submenu">
-        <div class="brown_shade">
-            <a href="#" class="submenu">학과 공지사항</a>
-        </div>
-        <div class="brown_shade">
+        <div class="brown_shade active" data-target="daily">
             <a href="#" class="submenu">학사일정</a>
         </div>
-        <div class="brown_shade">
-            <a href="#" class="submenu">일반 공지사항</a>
-        </div>
-        <div class="brown_shade">
-            <a href="#" class="submenu">장학금 공지사항</a>
-        </div>
-        <div class="brown_shade">
+        
+        <div class="brown_shade" data-target="event">
             <a href="#" class="submenu">교내외 행사</a>
         </div>
-        <div class="brown_shade">
-            <a href="#" class="submenu">도서관</a>
+        <div class="brown_shade" data-target="tuition">
+            <a href="#" class="submenu">장학금</a>
+        </div>
+     
+        
+        <div class="brown_shade" data-target="department">
+            <a href="#" class="submenu">학과</a>
         </div>
         <div class="brown_shade">
-            <a href="#" class="submenu">교환학생</a>
+            <a href="#" class="submenu" data-target="exchange">교환학생</a>
+        </div> 
+        <div class="brown_shade">
+            <a href="#" class="submenu" data-target="gopas">고파스에브리타임</a>
         </div>
         <div class="brown_shade">
-            <a href="#" class="submenu">고파스</a>
-        </div>
+            <a href="#" class="submenu" data-target="rule">일반 공지사항</a>
+        </div> 
         <div class="ads">
             <div>
                 <img src="https://ssl.pstatic.net/tveta/libs/1394/1394239/91595f2ce837bd098371_20220524165316965.jpg"
@@ -49,15 +49,16 @@
         </div>
     </div>
 
-    <div class="notice_in_main">
+    <div>
+    <div class="notice_in_main daily">
 
-        {% for notice in notices %}
+        {% for schedule_notice in schedule_notices %}
         <div>
             <div class="notice_header">
-                <a href="{{notice.link}}"
-                    class="notice_title">{{notice.title}}</a>
+                <a href="{{schedule_notice.link}}"
+                    class="notice_title">{{schedule_notice.title}}</a>
                 <!-- {{notice.category}} -->
-                <p>{{notice.post_date}}</p>
+                <p>{{schedule_notice.post_date}}</p>
             </div>
             {% comment %} <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam saepe eligendi
                 dignissimos
@@ -69,72 +70,86 @@
             </div> {% endcomment %}
         </div>
         {% endfor %}
+    </div>
 
-    
-        <br>
+    <div class="notice_in_main event">
+
+        {% for general_notice in general_notices %}
         <div>
             <div class="notice_header">
-                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
-                    class="notice_title">공지사항
-                    제목{{notice.link}}</a>
+                <a href="{{general_notice.link}}"
+                    class="notice_title">{{general_notice.title}}</a>
                 <!-- {{notice.category}} -->
-                <p>2022.05.12</p>
+                <p>{{general_notice.post_date}}</p>
             </div>
-            <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, quisquam iste
-                beatae impedit eos
-                aperiam
-                veritatis asperiores, nostrum, culpa magni minus. Architecto laborum quam dicta molestiae qui
-                inventore
-                nisi
-                labore!
-            </div>
-        </div>
-        <br>
-        <div>
-            <div class="notice_header">
-                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
-                    class="notice_title">공지사항
-                    제목{{notice.link}}</a>
-                <!-- {{notice.category}} -->
-                <p>2022.05.12</p>
-            </div>
-            <div class="notice_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, accusamus
-                quibusdam. Illum
-                expedita
-                hic,
-                molestiae obcaecati explicabo similique ad quisquam rerum, modi eveniet ullam totam dignissimos?
-                Explicabo
-                cumque quod quis.
-            </div>
-        </div>
-        <br>
-        <div>
-            <div class="notice_header">
-                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
-                    class="notice_title">공지사항
-                    제목{{notice.link}}</a>
-                <!-- {{notice.category}} -->
-                <p>2022.05.12</p>
-            </div>
-            <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, quisquam iste
-                beatae impedit eos
-                aperiam
-                veritatis asperiores, nostrum, culpa magni minus. Architecto laborum quam dicta molestiae qui
-                inventore
-                nisi
-                labore!
+            {% comment %} <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam saepe eligendi
+                dignissimos
+                adipisci
+                ipsum
+                est
+                ad neque, minus aliquid et alias quo aut, esse ex itaque sint, voluptate cupiditate libero?
                 2018.12.12
+            </div> {% endcomment %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="notice_in_main tuition">
+
+        {% for scholar_notice in scholar_notices %}
+        <div>
+            <div class="notice_header">
+                <a href="{{scholar_notice.link}}"
+                    class="notice_title">{{scholar_notice.title}}</a>
+                <!-- {{scholar_notice.category}} -->
+                <p>{{scholar_notice.post_date}}</p>
             </div>
         </div>
-        <br>
+        {% endfor %}
+    </div>
+
+    <div class="notice_in_main department">
+
+        {% for depart_notice in depart_notices %}
+        <div>
+            <div class="notice_header">
+                <a href="{{depart_notice.link}}"
+                    class="notice_title">{{depart_notice.title}}</a>
+                <!-- {{scholar_notice.category}} -->
+                <p>{{depart_notice.post_date}}</p>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
-<!-- <a href="{% url 'notice' %}">공지사항페이지로 이동</a> -->
-<!-- <!-- {% for notice in notices %} -->
-<!-- <li>css    <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients">{{notice.link}}</a> -->
-<!-- {{notice.category}} -->
-<!-- </li><div>    2018.12.12</div> -->
-<!-- {% endfor %} -->
+</div>
+
+<script>
+
+/* .menu-item 클릭시 해당 페이지 보여주기  */
+function showContents(target) {
+    let tarData = $(target).data('target');
+    $('.' + tarData).fadeIn();
+    $('.' + tarData).siblings().css({"display":"none"});
+    $(document).find('.brown_shade').removeClass('active');
+    $(target).addClass('active');
+}
+
+
+
+$(document).on('click', '.brown_shade', function() {
+    showContents(this);
+});
+
+
+
+{% comment %} $(document).on("click","#test-element",function() {
+    alert("click");
+}); {% endcomment %}
+
+
+
+
+</script>
 
 {% endblock content %}
 

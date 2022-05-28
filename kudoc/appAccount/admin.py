@@ -21,3 +21,4 @@ admin.site.register(Notice_content)
 
 UserAdmin.fieldsets +=(("Custom fields", {"fields": ("nickname", "department", "email_period", "category", "phone_number", )}),)
 
+

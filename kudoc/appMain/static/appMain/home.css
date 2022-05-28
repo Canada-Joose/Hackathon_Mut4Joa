@@ -167,3 +167,16 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
+
+
+.active {
+  background-color: #a8977680;
+}
+
+
+
+.notice_in_main.tuition,
+.notice_in_main.department,
+.notice_in_main.event {
+  display: none;
+}

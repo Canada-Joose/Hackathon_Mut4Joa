@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import User
 from datetime import datetime, date
+from django.utils import timezone
 
 
 
@@ -61,7 +62,8 @@ class Notice(models.Model):
     link = models.TextField(null=True)
     category = models.ForeignKey(Category_Item, models.CASCADE, related_name="notice_categorys", null=True, default='')
     content = models.ForeignKey(Notice_content, models.CASCADE, related_name="notice_contents", null=True, default='')
-    post_date = models.DateField(auto_now_add=True)
+    post_date = models.DateField()
+    end_date = models.DateField(default=timezone.now)
     source = models.CharField(max_length=255,null=True, default='')
 
     def __str__(self):

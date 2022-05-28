@@ -25,33 +25,77 @@ def index(request):
     # true or false로 판별됨
     notices = Notice.objects.all()
 
-    today = datetime.today().strftime("%Y%m%d") 
     
-    today = today[0:4] + '년 ' + today[4:6] + '월 ' + today[6:] + '일'
 
-    user_nickname = request.user.nickname
-    notice_length = len(notices)
-
-
+    category_items = Category_Item.objects.all()
+    # for i in category_items:
+    #     print(i, i.pk)
     
-    email = EmailMessage(
-    'kudocjoayo@gmail.com',     
-    render_to_string('appMain/emailform.html', {
-        'notices':notices,
-        "today": today,
-        'notice_length':notice_length,
-        'user_nickname':'재원',
-        }),
-    # 보내는 이메일 (settings에서 설정해서 작성안해도 됨)
-    to=['toyo30@naver.com'],  # 받는 이메일 리스트
+    
+    static = Category_Item.objects.get(pk=9)
+    static_notices = Notice.objects.filter(category=static)
+    bussi = Category_Item.objects.get(pk=11)
+    bussi_notices = Notice.objects.filter(category=bussi)
 
-    )
-    email.content_subtype= 'html'
-    email.send()
+    schedule = Category_Item.objects.get(pk=1)
+    schedule_notices = Notice.objects.filter(category=schedule)
+
+    scholarship = Category_Item.objects.get(pk=7)
+    scholar_notices = Notice.objects.filter(category=scholarship)
+
+    general = Category_Item.objects.get(pk=3)
+    general_notices = Notice.objects.filter(category=general)
+
+
+
+
+
+
+
+
+
+
+    # depart = Notice.objects.filter(category="경영학과")
+
+    ''
+    if request.user.is_authenticated:
+        today = datetime.today().strftime("%Y%m%d") 
+        
+        today = today[0:4] + '년 ' + today[4:6] + '월 ' + today[6:] + '일'
+
+        user_nickname = request.user.nickname
+        notice_length = len(notices)
+        print(request.user)    
+
+        if request.user.department == "경영학과":
+            depart_notices = bussi_notices
+        else:
+            depart_notices = static_notices
+
+
+
+        
+        email = EmailMessage(
+        'kudocjoayo@gmail.com',     
+        render_to_string('appMain/emailform.html', {
+            'notices':notices,
+            "today": today,
+            'notice_length':notice_length,
+            'user_nickname':'재원',
+            }),
+        # 보내는 이메일 (settings에서 설정해서 작성안해도 됨)
+        to=[request.user.email],  # 받는 이메일 리스트
+
+        )
+        email.content_subtype= 'html'
+        email.send()
     
     return render(request, "appMain/index.html", {
         "notices":notices,
-        
+        "depart_notices":depart_notices,
+        "schedule_notices":schedule_notices,
+        "scholar_notices":scholar_notices,
+        "general_notices":general_notices,
         }
     )
     
@@ -102,6 +146,14 @@ def notice(request):
 
 def noticeDetail(request):
     return render(request, "appMain/noticeDetail.html")
+
+
+def sendMail(request):
+    return redirect('index')
+
+
+def sendCategoryMail(request):
+    return redirect('index')
 
 '''
 class User(AbstractUser):
