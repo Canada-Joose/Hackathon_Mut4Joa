@@ -2,55 +2,136 @@
 
 {% block css %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'appMain/home_.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'appMain/home.css' %}" />
 {% endblock css %}
 
 
 {% block content %}
 
 
-<h1>홈페이지</h1>
+<h1>공지사항</h1>
+<div class="convert_to_row">
+    <div class="notice_submenu">
+        <div class="brown_shade">
+            <a href="#" class="submenu">학과 공지사항</a>
+        </div>
+        <div class="brown_shade">
+            <a href="#" class="submenu">학사일정</a>
+        </div>
+        <div class="brown_shade">
+            <a href="#" class="submenu">일반 공지사항</a>
+        </div>
+        <div class="brown_shade">
+            <a href="#" class="submenu">장학금 공지사항</a>
+        </div>
+        <div class="brown_shade">
+            <a href="#" class="submenu">교내외 행사</a>
+        </div>
+        <div class="brown_shade">
+            <a href="#" class="submenu">도서관</a>
+        </div>
+        <div class="brown_shade">
+            <a href="#" class="submenu">교환학생</a>
+        </div>
+        <div class="brown_shade">
+            <a href="#" class="submenu">고파스</a>
+        </div>
+        <div class="ads">
+            <div>
+                <img src="https://ssl.pstatic.net/tveta/libs/1394/1394239/91595f2ce837bd098371_20220524165316965.jpg"
+                    class="adimage" />
+            </div>
+            <div>
+                <img src="
+                    https://ssl.pstatic.net/tveta/libs/1389/1389869/d7dcffbdd27d7e068aae_20220429151510002.jpg"
+                    class="adimage" />
+            </div>
+        </div>
+    </div>
 
-<li>css
-    <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients">{{notice.link}}</a>
-    <!-- {{notice.category}} -->
-</li>
-<div>
-    2018.12.12
+    <div class="notice_in_main">
+
+        <div>
+            <div class="notice_header">
+                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
+                    class="notice_title">공지사항
+                    제목{{notice.link}}</a>
+                <!-- {{notice.category}} -->
+                <p>2022.05.12</p>
+            </div>
+            <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam saepe eligendi
+                dignissimos
+                adipisci
+                ipsum
+                est
+                ad neque, minus aliquid et alias quo aut, esse ex itaque sint, voluptate cupiditate libero?
+                2018.12.12
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="notice_header">
+                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
+                    class="notice_title">공지사항
+                    제목{{notice.link}}</a>
+                <!-- {{notice.category}} -->
+                <p>2022.05.12</p>
+            </div>
+            <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, quisquam iste
+                beatae impedit eos
+                aperiam
+                veritatis asperiores, nostrum, culpa magni minus. Architecto laborum quam dicta molestiae qui
+                inventore
+                nisi
+                labore!
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="notice_header">
+                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
+                    class="notice_title">공지사항
+                    제목{{notice.link}}</a>
+                <!-- {{notice.category}} -->
+                <p>2022.05.12</p>
+            </div>
+            <div class="notice_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, accusamus
+                quibusdam. Illum
+                expedita
+                hic,
+                molestiae obcaecati explicabo similique ad quisquam rerum, modi eveniet ullam totam dignissimos?
+                Explicabo
+                cumque quod quis.
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="notice_header">
+                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
+                    class="notice_title">공지사항
+                    제목{{notice.link}}</a>
+                <!-- {{notice.category}} -->
+                <p>2022.05.12</p>
+            </div>
+            <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, quisquam iste
+                beatae impedit eos
+                aperiam
+                veritatis asperiores, nostrum, culpa magni minus. Architecto laborum quam dicta molestiae qui
+                inventore
+                nisi
+                labore!
+                2018.12.12
+            </div>
+        </div>
+        <br>
+    </div>
 </div>
-
-<li>css
-    <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients">{{notice.link}}</a>
-    <!-- {{notice.category}} -->
-</li>
-<div>
-    2018.12.12
-</div>
-
-<li>css
-    <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients">{{notice.link}}</a>
-    <!-- {{notice.category}} -->
-</li>
-<div>
-    2018.12.12
-</div>
-
-<a href="{% url 'notice' %}">공지사항페이지로 이동</a>
-
-{% for notice in notices %}
-
-<li>css
-    <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients">{{notice.link}}</a>
-    <!-- {{notice.category}} -->
-</li>
-<div>
-    2018.12.12
-</div>
-
-
-
-{% endfor %}
-
+<!-- <a href="{% url 'notice' %}">공지사항페이지로 이동</a> -->
+<!-- <!-- {% for notice in notices %} -->
+<!-- <li>css    <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients">{{notice.link}}</a> -->
+<!-- {{notice.category}} -->
+<!-- </li><div>    2018.12.12</div> -->
+<!-- {% endfor %} -->
 
 {% endblock content %}
 

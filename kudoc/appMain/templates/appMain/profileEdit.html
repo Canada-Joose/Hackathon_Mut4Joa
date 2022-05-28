@@ -2,7 +2,7 @@
 
 {% block css %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'appMain/profile_edit.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'appMain/profile_edit_.css' %}" />
 {% endblock css %}
 
 
@@ -58,14 +58,14 @@
                     <div>
                         <p class="content_in_menu">구독 중</p>
                         <div>
-                            <a href="#" class="content_in_menu">구독 취소하기</a>
+                            <a href="#" class="content_in_menu2">구독 취소하기</a>
                         </div>
                     </div>
                     {% else %}
                     <div>
                         <p class="content_in_menu">구독 취소</p>
                         <div>
-                            <a href="#" class="content_in_menu">구독하기</a>
+                            <a href="#" class="content_in_menu2">구독하기</a>
                         </div>
                     </div>
                     {% endif %}
@@ -78,14 +78,14 @@
                     <div>
                         <p class="content_in_menu">유료 회원</p>
                         <div>
-                            <a href="#" class="content_in_menu">무료 회원 전환</a>
+                            <a href="#" class="content_in_menu2">무료 회원 전환</a>
                         </div>
                     </div>
                     {% else %}
                     <div>
                         <p class="content_in_menu">무료 회원</p>
                         <div>
-                            <a href="#" class="content_in_menu">유료 회원 전환</a>
+                            <a href="#" class="content_in_menu2">유료 회원 전환</a>
                         </div>
                     </div>
                     {% endif %}
@@ -100,7 +100,7 @@
             <br>
 
             <div class="button_container">
-                <button type="submit" class="button_link">수정 완료</button>
+                <button type="submit" class="button_link2">수정 완료</button>
                 <a href="{% url 'index' %}" class="button_link">홈으로 이동</a>
             </div>
 
