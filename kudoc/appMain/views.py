@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 from django.http import Http404
+from appAccount.models import *
 # Create your views here.
 def index(request):
     # print(request.user.email)
@@ -17,8 +18,11 @@ def index(request):
     # 로그인되어 있으면, true
     # 로그인 안 되어있으면, false를 출력
     # true or false로 판별됨
+    notices = Notice.objects.all()
 
-    return render(request, "appMain/index.html")
+
+    return render(request, "appMain/index.html", {"notices":notices,}
+    )
 
 
 def profile(request):
