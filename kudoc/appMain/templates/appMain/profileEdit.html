@@ -25,7 +25,7 @@
             </div>
             <div class="menu_column">
                 <div class="menu_column_name">유저 이름</div>
-                <input name="name" class="content_in_menu" value="{{ user }}" />
+                <input name="nickname" class="content_in_menu" value="{{ user.nickname }}" />
             </div>
             <div class="menu_column">
                 <div class="menu_column_name">유저 이메일</div>
@@ -33,7 +33,7 @@
             </div>
             <div class="menu_column">
                 <div class="menu_column_name">전화번호</div>
-                <input name="email" class="content_in_menu" value="{{ user.phone_number }}" />
+                <input name="phone_number" class="content_in_menu" value="{{ user.phone_number }}" />
             </div>
 
             <br>
@@ -44,12 +44,20 @@
             </div>
             <div class="menu_column">
                 <div class="menu_column_name">이메일 전송기간</div>
-                <input name="email_period" class="content_in_menu" value="{{ user.email_period }}일" />
+                <select class="content_in_menu" name="email_period" id="email_period">
+                    {% for email_period in email_periods %}
+                        <option value="{{email_period}}">{{email_period}}</option>
+                    {% endfor %}
+                </select>
 
             </div>
             <div class="menu_column">
                 <div class="menu_column_name">관심사</div>
-                <input name="category" class="content_in_menu" value="{{ user.category }}" />
+                <select class="content_in_menu" name="category" id="category">
+                    {% for category in categorys %}
+                        <option value="{{category}}">{{category}}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="menu_column">
                 <p class="menu_column_name">구독 여부</p>

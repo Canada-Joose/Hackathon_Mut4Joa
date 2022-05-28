@@ -136,7 +136,10 @@ body {
   display: flex;
   justify-content: center;
   flex: 1;
+  height: 100% !important;
+  background: linear-gradient(#948362, #c7b393 );
 }
+
 
 .page-header {
   width: 800px;
@@ -183,7 +186,7 @@ h2 {
   background-color: white;
   width: 100%;
   box-sizing:border-box;
-  height: 600px;
+  height: 100%;
   margin: 15px;
   padding: 5px;
   display: flex;

@@ -36,3 +36,21 @@ input {
     font-size: 20px;
     font-weight: 600;
 }
+
+.period_box {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #444444;
+}
+
+.text-box {
+    font-size: 15px;
+    height: 30px;
+    text-align: center;
+    color: #444444;
+    margin-bottom: 5px;
+}
+
+.select-box {
+    width: 100%;
+    text-align: center;
+}

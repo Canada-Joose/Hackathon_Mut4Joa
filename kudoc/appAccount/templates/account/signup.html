@@ -1,44 +1,89 @@
-{% extends "coplate_base/base.html" %}
+{% extends 'appAccount/base.html' %}
 
-{% load static %}
 {% load widget_tweaks %}
+{% block css %}
 
-{% block title %}회원가입 | Coplate{% endblock title %}
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'appAccount/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'appAccount/signup_.css' %}" />
+{% endblock css %}
+
 
 {% block content %}
-<div class="account-background">
-  <main class="account">
-    <div class="title">
-      <a href="{% url 'index' %}">
-        <img class="logo" src="{% static 'appAccount/assets/coplate-logo.svg' %}" alt="Coplate Logo">
-      </a>
-    </div>
 
+<section id="login">
     <form method="post">
-      {% csrf_token %}
-      <div>
-        <input type="email" name="email" placeholder="이메일" autocomplete="email" class="cp-input" required id="id_email">
-        {% comment %} {{form.email|attr: "class=cp-input"|attr:"placeholder=이메일" }} {% endcomment %}
-        {{form.email|attr:"class=cp-input"|attr:"placeholder=이메일" }}
-      </div>
-      <div>
-        <input type="text" name="nickname" maxlength="15" placeholder="닉네임 (Coplate에서 사용되는 이름입니다)"
-          class="error cp-input" required id="id_nickname">
-        <div class="error-message">이미 사용중인 닉네임입니다.</div>
-      </div>
-      <div>
-        <input type="password" name="password1" placeholder="비밀번호" autocomplete="new-password" class="cp-input" required
-          id="id_password1">
-      </div>
-      <div>
-        <input type="password" name="password2" placeholder="비밀번호 확인" class="cp-input" required id="id_password2">
-      </div>
-      <button class="cp-button" type="submit">회원가입</button>
-    </form>
+        {% csrf_token %}
+        <!-- {% if error %}
+        <p class="errormessage">{{error}}</p>
+        {% endif %} -->
+        <div class="container">
+            <h3>Sign UP</h3>
+            <br>
+            {{form.email|attr:"placeholder=이메일"|add_error_class:"error"}}
+            {% for error in form.email.errors %}
+                <div class="error-message">{{error}}</div>
+            {% endfor %}
+            <br>
+            {{form.nickname|attr:"placeholder=닉네임"|add_error_class:"error"}}
+            {% for error in form.nickname.errors %}
+                <div class="error-message">{{error}}</div>
+            {% endfor %}
+            <br>
+            {{form.department|attr:"placeholder=학과"}}
+            <br>
+            {{ form.phone_number|attr:"placeholder=+8210XXXXXXXX"|add_error_class:"error"}}
+            {% for error in form.phone_number.errors %}
+                <div class="error-message">{{error}}</div>
+            {% endfor %}
+            <br>
+            <div class="period-box">
+              <div class="text-box">이메일 전송 기간 설정</div>
+              {{ form.email_period|attr:"class=select-box"|add_error_class:"error"}}  
+              {% for error in form.email_period.errors %}
+                <div class="error-message">{{error}}</div>
+            {% endfor %}
+            </div>
+            <br>
+            <div class="period-box">
+                <div class="text-box">이메일 전송 기간 설정</div>r
+                {{ form.category|attr:"class=select-box"|add_error_class:"error"}}
+                {% for error in form.category.errors %}
+                    <div class="error-message">{{error}}</div>
+                {% endfor %}
+              </div>
+            <br>
+            {{ form.password1|add_error_class:"error"}}
+            {% for error in form.password1.errors %}
+                <div class="error-message">{{error}}</div>
+            {% endfor %}
+            <br>
+            {{ form.password2|add_error_class:"error"}}
+            {% for error in form.password2.errors %}
+                <div class="error-message">{{error}}</div>
+            {% endfor %}
+            <br>
+            
+            <!-- <input type="email" name="email" placeholder="이메일을 입력해주세요" autocomplete="email" class="cp-input" required
+                id="id_email"> -->
+            
+            <!-- {{form.email|attr:"class=cp-input"|attr:"placeholder=이메일" }} -->
+            <br>
+            {% comment %} <input type="password" name="password" placeholder="비밀번호를 입력해주세요" autocomplete="password" class="cp-input"
+                required id="id_password1" /> {% endcomment %}
+            {% comment %} {{form.password|attr: "class=cp-input"|attr:"password=비밀번호" }} {% endcomment %}
+            <br>
+            <!-- <button class="loginbutton"> -->
+            <button class="loginbutton" type="submit"><span class="login22">회원가입</span></button>
+            <!-- </button> -->
+            <br>
+        </div>
 
-    <div class="info">
-      이미 회원이신가요?<a class="link" href="{% url 'account_login' %}">로그인</a>
-    </div>
-  </main>
-</div>
+    </form>
+</section>
+
 {% endblock content %}
+
+{% block button %}
+{% endblock button %}
+

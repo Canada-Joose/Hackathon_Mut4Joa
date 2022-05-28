@@ -16,14 +16,13 @@ class SignupForm(forms.ModelForm):
     class Meta:
         model = User
         # 추가해준 필드만 가져오면 됨.
-        fields = ("nickname", "department", "phone_number",
-                  "email_period", "category",)
+        fields = ("nickname", "department", "phone_number", "email_period", "category",)
 
         widgets = {
             # 'email_period': forms.Select(choices=choices, attrs={'class':'form-control'}),
             # 'email_period': forms.Select(choices=choices, attrs={'class':'form-control', placeholder로 뭐나오는지보기}),
-            # 'email_period': forms.Select(choices=choices, attrs={'class':'form-control'}),
-            # 'category': forms.Select(choices=items, attrs={'class':'form-control'}),
+            'email_period': forms.Select(choices=choices, attrs={'class':'form-control'}),
+            'category': forms.Select(choices=items, attrs={'class':'form-control'}),
         }
 
         # form을 보여주는 방식
