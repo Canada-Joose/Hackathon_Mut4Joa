@@ -51,23 +51,26 @@
 
     <div class="notice_in_main">
 
+        {% for notice in notices %}
         <div>
             <div class="notice_header">
-                <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Images/Using_CSS_gradients"
-                    class="notice_title">공지사항
-                    제목{{notice.link}}</a>
+                <a href="{{notice.link}}"
+                    class="notice_title">{{notice.title}}</a>
                 <!-- {{notice.category}} -->
-                <p>2022.05.12</p>
+                <p>{{notice.post_date}}</p>
             </div>
-            <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam saepe eligendi
+            {% comment %} <div class="notice_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam saepe eligendi
                 dignissimos
                 adipisci
                 ipsum
                 est
                 ad neque, minus aliquid et alias quo aut, esse ex itaque sint, voluptate cupiditate libero?
                 2018.12.12
-            </div>
+            </div> {% endcomment %}
         </div>
+        {% endfor %}
+
+    
         <br>
         <div>
             <div class="notice_header">
