@@ -21,7 +21,7 @@
         <td style="padding-bottom:10px;padding-top:10px;width:100%;padding-right:0;padding-left:0">
             <div align="center" style="line-height:10px">
                 <p style="line-height:0.5cm;;margin:0"><span style="font-weight: 800; font-size: 30px;color:#71011a">당신만을 위한 KU독</span></p>                       
-                <p style="line-height:inherit;margin:0"><p><span style="font-weight: 800; font-size: 16px;color:#71011a">2022년 05월 29일</span><span style="font-weight: 600; font-size: 16px;color:#000000">자 소식</span></p>        
+                <p style="line-height:inherit;margin:0"><p><span style="font-weight: 800; font-size: 16px;color:#71011a">{{today}}</span><span style="font-weight: 600; font-size: 16px;color:#000000">자 소식</span></p>        
                     <!-- <span><script type = "text/javascript">
                         var d = new Date();
                         document.write(d.getFullYear()+'-');
@@ -36,7 +36,7 @@
 <tbody>
     <tr>
         <td style="padding-bottom:20px;padding-left:25px;padding-right:25px;padding-top:20px"><div style="font-family:Arial,sans-serif"><div style="font-size:12px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#000;;line-height:1.5">
-            <p style="line-height:inherit;margin:0;font-size:14px">안녕하세요&nbsp;<span style="font-size:14px;font-weight: 800">지우님,</span> 쿠독입니다.</span></p>
+            <p style="line-height:inherit;margin:0;font-size:14px">안녕하세요&nbsp;<span style="font-size:14px;font-weight: 800">{{user_nickname}}님,</span> 쿠독입니다.</span></p>
             <p style="line-height:inherit;margin:0">&nbsp;</p>
             <p style="line-height:inherit;margin:0"><span style="font-size:14px">대동제와 입실렌티, 그리고 해커톤까지</span></p>
             <!-- <p style="line-height:inherit;margin:0">&nbsp;</p> -->
@@ -44,11 +44,11 @@
             <!-- <p style="line-height:inherit;margin:0">&nbsp;</p> -->
             <p style="line-height:inherit;margin:0"><span style="font-size:14px">여름 방학을 기다리며 조금만 파이팅해요! </span></p>
             <p style="line-height:inherit;margin:0">&nbsp;</p>
-            <p style="line-height:inherit;margin:0"><span style="font-size:14px">지난주 지우님을 위한
+            <p style="line-height:inherit;margin:0"><span style="font-size:14px">지난주 {{user_nickname}}님을 위한
                 <strong><span style="color:#f38d7d">새로운 소식</span></strong>
-                <strong><span style="color:#71011a">&nbsp;34개</span></strong>
+                <strong><span style="color:#71011a">&nbsp;{{notice_length}}개</span></strong>
                 가 업로드 되었어요!</span></p>
-            <br><p style="line-height:inherit;margin:0"><span style="font-size:14px">지우님에게 꼭 필요한 게시물들을 놓치지 마시라고 들고 와봤어요.<span style="color:#71011a"><strong>쿠독이 짱이죠?</strong></span></span><img style="width:20px" data-emoji="😉" class="an1" alt="😉" aria-label="😉" src="https://fonts.gstatic.com/s/e/notoemoji/14.0/1f609/72.png" loading="lazy"></p>
+            <br><p style="line-height:inherit;margin:0"><span style="font-size:14px">{{user_nickname}}님에게 꼭 필요한 게시물들을 놓치지 마시라고 들고 와봤어요.<span style="color:#71011a"><strong>쿠독이 짱이죠?</strong></span></span><img style="width:20px" data-emoji="😉" class="an1" alt="😉" aria-label="😉" src="https://fonts.gstatic.com/s/e/notoemoji/14.0/1f609/72.png" loading="lazy"></p>
             <br><p style="line-height:inherit;margin:0"><span style="font-size:14px">쿠독과 오래오래 함께 해주세요 :)&nbsp;</span></p>
             </div>
             </div>
@@ -68,7 +68,7 @@
             <div style="font-family:sans-serif">
                 <div style="font-size:12px;color:#000;line-height:1.2;font-family:Arial,Helvetica Neue,Helvetica,sans-serif">
                     <p align="center" style="line-height:inherit;font-size:12px;margin:0;text-align:center">
-                        <span style="font-size:16px"><strong><img style="width:20px" data-emoji="🏆" class="an1" alt="🏆" aria-label="🏆" src="https://fonts.gstatic.com/s/e/notoemoji/14.0/1f3c6/72.png" loading="lazy"> 오직 지우만을 위한 공지 <img style="width:20px" data-emoji="🏆" class="an1" alt="🏆" aria-label="🏆" src="https://fonts.gstatic.com/s/e/notoemoji/14.0/1f3c6/72.png" loading="lazy"></strong></span>
+                        <span style="font-size:16px"><strong><img style="width:20px" data-emoji="🏆" class="an1" alt="🏆" aria-label="🏆" src="https://fonts.gstatic.com/s/e/notoemoji/14.0/1f3c6/72.png" loading="lazy"> 오직 {{user_nickname}}만을 위한 공지 <img style="width:20px" data-emoji="🏆" class="an1" alt="🏆" aria-label="🏆" src="https://fonts.gstatic.com/s/e/notoemoji/14.0/1f3c6/72.png" loading="lazy"></strong></span>
                     </p>
                 </div>
             </div>
@@ -97,7 +97,7 @@
 <tbody>
     <tr>
         <td>
-            <div style="font-family:sans-serif"><div style="font-size:12px;color:#555;line-height:1.2;font-family:Arial,Helvetica Neue,Helvetica,sans-serif"><p align="center" style="line-height:inherit;font-size:12px;margin:0;text-align:center"><strong><span style="font-size:16px;color:#000000">[관심분야 1]교환학생</span></strong></p></div></div>
+            <div style="font-family:sans-serif"><div style="font-size:12px;color:#555;line-height:1.2;font-family:Arial,Helvetica Neue,Helvetica,sans-serif"><p align="center" style="line-height:inherit;font-size:12px;margin:0;text-align:center"><strong><span style="font-size:16px;color:#000000">[관심분야]{{category}}</span></strong></p></div></div>
             {% for notice in notices %}
             <div style="line-height:inherit;margin:0;font-size:16px;font-weight:bolder;color:#71011a">{{notice.title}}</div>
             <div style="width:100%;font-size:12px"> <img style="width:15px" data-emoji="👉" class="an1" alt="👉" aria-label="👉" src="https://fonts.gstatic.com/s/e/notoemoji/14.0/1f449/72.png" loading="lazy">{{notice.link}}</div>

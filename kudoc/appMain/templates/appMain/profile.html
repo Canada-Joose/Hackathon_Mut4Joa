@@ -23,7 +23,7 @@
         </div>
         <div class="menu_column">
             <div class="menu_column_name">유저 이름</div>
-            <p class="content_in_menu">{{user}}</p>
+            <p class="content_in_menu">{{user.nickname}}</p>
         </div>
         <div class="menu_column">
             <div class="menu_column_name">유저 이메일</div>
@@ -75,7 +75,7 @@
         <br>
         <div class="button_container">
             <a href="{% url 'profileEdit' %}" class="button_link">프로필 편집</a>
-            <a href="{% url 'index' %}" class="button_link">홈으로 이동</a>
+            <a href="{% url 'sendCategoryMail' %}" class="button_link">구독정보 받기</a>
         </div>
     </div>
 

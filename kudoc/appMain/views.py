@@ -54,10 +54,10 @@ def index(request):
 
 
 
-
     # depart = Notice.objects.filter(category="경영학과")
 
-    ''
+    
+
     if request.user.is_authenticated:
         today = datetime.today().strftime("%Y%m%d") 
         
@@ -65,13 +65,7 @@ def index(request):
 
         user_nickname = request.user.nickname
         notice_length = len(notices)
-        print(request.user)    
-
-        if request.user.department == "경영학과":
-            depart_notices = bussi_notices
-        else:
-            depart_notices = static_notices
-
+        
 
 
         
@@ -81,7 +75,11 @@ def index(request):
             'notices':notices,
             "today": today,
             'notice_length':notice_length,
-            'user_nickname':'재원',
+            'user_nickname':request.user.nickname,
+            "depart_notices":static_notices,
+            "schedule_notices":schedule_notices,
+            "scholar_notices":scholar_notices,
+            "general_notices":general_notices,
             }),
         # 보내는 이메일 (settings에서 설정해서 작성안해도 됨)
         to=[request.user.email],  # 받는 이메일 리스트
@@ -92,7 +90,7 @@ def index(request):
     
     return render(request, "appMain/index.html", {
         "notices":notices,
-        "depart_notices":depart_notices,
+        "depart_notices":static_notices,
         "schedule_notices":schedule_notices,
         "scholar_notices":scholar_notices,
         "general_notices":general_notices,
@@ -117,6 +115,7 @@ def profileEdit(request):
         print(request.user.id)
         print(User.objects.get(id=request.user.id))
         user = User.objects.get(id=request.user.id)
+        print(user)
         user.email = request.POST['email'],
         user.nickname = request.POST['nickname'],
         # user.phone_number = request.POST['phone_number'],
@@ -153,6 +152,31 @@ def sendMail(request):
 
 
 def sendCategoryMail(request):
+    notices = Notice.objects.filter(category=request.user.category)
+
+    today = datetime.today().strftime("%Y%m%d") 
+    today = today[0:4] + '년 ' + today[4:6] + '월 ' + today[6:] + '일'
+    notice_length = len(notices)
+
+
+    email = EmailMessage(
+    'kudocjoayo@gmail.com',     
+    render_to_string('appMain/premiunForm.html', {
+        'notices':notices,
+        'today': today,
+        'user_nickname': request.user.nickname,
+        'category': request.user.category,
+        'notice_length': notice_length,
+        }),
+    # 보내는 이메일 (settings에서 설정해서 작성안해도 됨)
+    to=[request.user.email],  # 받는 이메일 리스트
+
+    )
+    email.content_subtype= 'html'
+    email.send()
+
+
+
     return redirect('index')
 
 '''
