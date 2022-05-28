@@ -1,3 +1,5 @@
+
+
 .big_container {
     display: flex;
     flex-direction: column;
@@ -10,10 +12,6 @@
     flex-direction: column;
     width: 50%;
     
-}
-
-form {
-    width: 100%;
 }
 
 .page_title {
@@ -79,10 +77,6 @@ h2 {
     text-align: center;
 }
 
-input {
-    border: 0 solid white;
-}
-
 .button_container {
     display: flex;
     flex-direction: row;
@@ -103,7 +97,7 @@ input {
     width: 180px;
     margin: 2%;
     border: solid white 0px;
-    border-radius: 12px;
+    border-radius: 4px;
 }
 
 .button_link:hover {
