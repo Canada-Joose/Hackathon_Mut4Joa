@@ -2,132 +2,120 @@
 
 {% block css %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'appMain/profile.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'appMain/profile_edit.css' %}" />
 {% endblock css %}
 
 
 {% block content %}
 
-<h1>회원 정보 수정/h1>
 
-    <form method="POST">
+<form method="POST">
+    <div class="big_container">
         {% csrf_token %}
         {% if user.is_authenticated %}
-        <div class="menu_column">
-            <p class="menu_column_name">유저 이름</p>
-            <input name="name" class="menu_column_name" value="{{ user }}" />
-        </div>
-        <div class="menu_column">
-            <p class="menu_column_name">유저 이메일</p>
-            <input name="email" class="menu_column_name" value="{{ user.email }}" />
-        </div>
-        <div class="menu_column">
-            <p class="menu_column_name">이메일 전송기간</p>
-            <input name="email_period" class="menu_column_name" value="{{ user.email_period }}일" />
-            <!-- input tag 가 아니라 select Box로? 확인해보기 -->
-        </div>
-        <div class="menu_column">
-            <p class="menu_column_name">관심사</p>
-            <input name="category" class="menu_column_name" value="{{ user.category }}" />
-            <!-- input tag 가 아니라 select Box로? 확인해보기 -->
-        </div>
-        <div class="menu_column">
-            <p class="menu_column_name">전화번호</p>
-            <input name="email" class="menu_column_name" value="{{ user.phone_number }}" />
-        </div>
-        <div class="menu_column">
-            <p class="menu_column_name">구독 여부</p>
-            <div>
-                {% if user.is_active %}
-                <div>
-                    <p>구독 중</p>
-                    <div>
-                        <a href="#">구독 취소하기</a>
-                    </div>
-                </div>
-                {% else %}
-                <div>
-                    <p>구독 취소</p>
-                    <div>
-                        <a href="#">구독하기</a>
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="menu_column">
-            <p class="menu_column_name">회원 종류</p>
-            <div>
-                {% if user.is_premier %}
-                <div>
-                    <p>유료 회원</p>
-                    <div>
-                        <a href="#">무료 회원 전환</a>
-                    </div>
-                </div>
-                {% else %}
-                <div>
-                    <p>무료 회원</p>
-                    <div>
-                        <a href="#">유료 회원 전환</a>
-                    </div>
-                </div>
-                {% endif %}
-                {% else %}
-                <p>로그인이 필요합니다.</p>
-                {% endif %}
-            </div>
-        </div>
-
         <br>
-        <button type="submit">수정 완료</button>
-    </form>
+        <div class="page_title">
+            <h1>회원 정보 수정</h1>
+        </div>
 
-    <a href="{% url 'index' %}">홈으로 이동</a>
-    <a href="{% url 'profileEdit' %}">프로필 편집</a>
+        <div class="container">
 
-    {% endblock content %}
+            <div class="page_title2">
+                <h2>기본 정보</h2>
+            </div>
+            <div class="menu_column">
+                <div class="menu_column_name">유저 이름</div>
+                <input name="name" class="content_in_menu" value="{{ user }}" />
+            </div>
+            <div class="menu_column">
+                <div class="menu_column_name">유저 이메일</div>
+                <input name="email" class="content_in_menu" value="{{ user.email }}" />
+            </div>
+            <div class="menu_column">
+                <div class="menu_column_name">전화번호</div>
+                <input name="email" class="content_in_menu" value="{{ user.phone_number }}" />
+            </div>
 
+            <br>
+            <br>
 
+            <div class="page_title2">
+                <h2>선택 정보</h2>
+            </div>
+            <div class="menu_column">
+                <div class="menu_column_name">이메일 전송기간</div>
+                <input name="email_period" class="content_in_menu" value="{{ user.email_period }}일" />
 
+            </div>
+            <div class="menu_column">
+                <div class="menu_column_name">관심사</div>
+                <input name="category" class="content_in_menu" value="{{ user.category }}" />
+            </div>
+            <div class="menu_column">
+                <p class="menu_column_name">구독 여부</p>
+                <div>
+                    {% if user.is_active %}
+                    <div>
+                        <p class="content_in_menu">구독 중</p>
+                        <div>
+                            <a href="#" class="content_in_menu">구독 취소하기</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div>
+                        <p class="content_in_menu">구독 취소</p>
+                        <div>
+                            <a href="#" class="content_in_menu">구독하기</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="menu_column">
+                <p class="menu_column_name">회원 종류</p>
+                <div>
+                    {% if user.is_premier %}
+                    <div>
+                        <p class="content_in_menu">유료 회원</p>
+                        <div>
+                            <a href="#" class="content_in_menu">무료 회원 전환</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div>
+                        <p class="content_in_menu">무료 회원</p>
+                        <div>
+                            <a href="#" class="content_in_menu">유료 회원 전환</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <p>로그인이 필요합니다.</p>
+                    {% endif %}
 
-    {% block button %}
+                </div>
+            </div>
 
-    <div>
+            <br>
+            <br>
+
+            <div class="button_container">
+                <button type="submit" class="button_link">수정 완료</button>
+                <a href="{% url 'index' %}" class="button_link">홈으로 이동</a>
+            </div>
+
+        </div>
 
     </div>
-
-    {% endblock button %}
-
-
-    <label for="title">CONTENT</label>
-
-    <!-- 아래 textarea의 기본값을 게시글(post)의 content으로 세팅하기 -->
-    <textarea name="content">{{ post.content }}</textarea>
+</form>
 
 
-<h1>회원 정보 수정</h1>
+{% endblock content %}
 
-{% if user.is_authenticated %}
-    <p>유저 이름 {{user}}님!</p>
-    <p>유저 이메일 {{user.email}}님!</p>
-    <p>유저 이메일 {{user.name}}님!</p>
-    <p>이메일 전송기간 {{user.email_period}}일</p>
-    <p>관심사 {{user.category}}</p>
-    <p>전화번호 {{user.phone_number}}</p>
-    {% if user.is_active %}
-    <p>구독 취소</p>
-    {% else %}
-    <p>구독 중</p>
-    {% endif %}
-    {% if user.is_premier  %}
-    <p>유료 회원</p>
-    {% else %}
-    <p>무료 회원</p>
-    {% endif %}
-{% else %}
-    <p>로그인이 필요합니다.</p>
-{% endif %}
 
-<a href="{% url 'index' %}">홈으로 이동</a>
-<a href="/">수정완료</a>
+{% block button %}
+
+<br>
+
+
+{% endblock button %}

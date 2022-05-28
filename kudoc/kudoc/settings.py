@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    #생성 app
+    # 생성 app
     'appAccount',
     'appMain',
-    #input tag 수정하기 위한 패키지
+    # input tag 수정하기 위한 패키지
     'widget_tweaks',
-    #allauth 세팅
+    # allauth 세팅
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -53,10 +53,10 @@ INSTALLED_APPS = [
     'phonenumbers',
 ]
 
-#django.contrib.sites 장고 여러 기능을 장고 웹사이트 내에서 사용할 수 있도록 해준다.
-#장고 웹사이트 하나로 여러 웹사이트를 운영할 수 있다. 
+# django.contrib.sites 장고 여러 기능을 장고 웹사이트 내에서 사용할 수 있도록 해준다.
+# 장고 웹사이트 하나로 여러 웹사이트를 운영할 수 있다.
 
-#SITE_ID는 각각의 사이트 아이디라고 생각하면 된다. 
+# SITE_ID는 각각의 사이트 아이디라고 생각하면 된다.
 
 SITE_ID = 1
 
@@ -150,13 +150,13 @@ STATIC_URL = '/static/'
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 
-#Auth Settingss
+# Auth Settingss
 
-#user db account에 있는 db로 통일시키기
+# user db account에 있는 db로 통일시키기
 AUTH_USER_MODEL = "appAccount.User"
 
 
-#Auth 유저 정보 자동으로 만들어주기 
+# Auth 유저 정보 자동으로 만들어주기
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -164,13 +164,13 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-#회원가입하고, 다시 홈페이지로 돌아오도록 만들기
+# 회원가입하고, 다시 홈페이지로 돌아오도록 만들기
 ACCOUNT_SIGNUP_REDIRECT_URL = "index"
 
-#로그인하고, 다시 홈페이지로 돌아오도록 만들기
+# 로그인하고, 다시 홈페이지로 돌아오도록 만들기
 LOGIN_REDIRECT_URL = "index"
 
-#ACCOUNT_LOGOUT_ON_GET의 기본값이 False인데, True로 바꿔주면, 바로 로그아웃됨.
+# ACCOUNT_LOGOUT_ON_GET의 기본값이 False인데, True로 바꿔주면, 바로 로그아웃됨.
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 # ACCOUNT_AUTHNTICATION_METHOD = "username_email"의 경우 유저네임 이메일로 동시에 가입가능
@@ -180,22 +180,22 @@ ACCOUNT_EMAIL_REQUIRED = True
 # 유저네임 필수로 받지 않기
 ACCOUNT_USERNAME_REQUIRED = False
 
-#signup할 때, 여기를 참조하라는 것 
+# signup할 때, 여기를 참조하라는 것
 ACCOUNT_SIGNUP_FORM_CLASS = "appAccount.forms.SignupForm"
 
-#세션을 브라우져를 닫았을 때도 기억해주겠다에 해당하는 것
-#기본값은 false
+# 세션을 브라우져를 닫았을 때도 기억해주겠다에 해당하는 것
+# 기본값은 false
 ACCOUNT_SESSION_REMEMBER = True
 
-#회원가입 당시 password오류가 나도 비밀번호를 그대로 채워줌
+# 회원가입 당시 password오류가 나도 비밀번호를 그대로 채워줌
 ACCOUT_PASSWORD_INPUT_RENDER_VALUE = True
 
-#이메일 관련
+# 이메일 관련
 
-#유저가 로그인 되었을 때, 이메일 인증
+# 유저가 로그인 되었을 때, 이메일 인증
 ACCOUT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
 
-#유저가 로그인되지 않았을 때, 이메일 인증
+# 유저가 로그인되지 않았을 때, 이메일 인증
 ACCOUT_EMAIL_CONFIRMATION_ANOYMOUS_REDIRECT_URL = "account_email_confirmation_done"
 
 # 이메일 인증 안 해도 됨
@@ -213,9 +213,9 @@ SESSION_COOKIE_AGE = 3600
 '''
 
 
-#EMail settings
+# EMail settings
 
-#gmail smtp를 연결하기 위한 것
+# gmail smtp를 연결하기 위한 것
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
