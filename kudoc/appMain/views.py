@@ -65,7 +65,7 @@ def profile(request):
     email = EmailMessage(
 
     'kudocjoayo@gmail.com',     
-    render_to_string('appMain/premiumfrom.html', {
+    render_to_string('appMain/premiumform.html', {
         'notices':notices
         }),
     # 보내는 이메일 (settings에서 설정해서 작성안해도 됨)
