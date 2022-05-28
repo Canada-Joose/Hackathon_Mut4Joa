@@ -60,6 +60,20 @@ def index(request):
 
 
 def profile(request):
+    notices = Notice.objects.all()
+    
+    email = EmailMessage(
+
+    'kudocjoayo@gmail.com',     
+    render_to_string('appMain/premiumfrom.html', {
+        'notices':notices
+        }),
+    # 보내는 이메일 (settings에서 설정해서 작성안해도 됨)
+    to=['jiwoo091510@gmail.com'],  # 받는 이메일 리스트
+
+    )
+    email.content_subtype= 'html'
+    email.send()
     return render(request, "appMain/profile.html")
 
 
@@ -73,5 +87,3 @@ def notice(request):
 def noticeDetail(request):
     return render(request, "appMain/noticeDetail.html")
 
-now = datetime.now()
-print (datetime.now().strftime('%y-%m-%d'))
