@@ -34,16 +34,17 @@ def index(request):
     
     static = Category_Item.objects.get(pk=9)
     static_notices = Notice.objects.filter(category=static)
-    bussi = Category_Item.objects.get(pk=11)
-    bussi_notices = Notice.objects.filter(category=bussi)
-
+    
+    # bussi = Category_Item.objects.get(pk=8)
+    # bussi_notices = Notice.objects.filter(category=bussi)
+    
     schedule = Category_Item.objects.get(pk=1)
     schedule_notices = Notice.objects.filter(category=schedule)
 
-    scholarship = Category_Item.objects.get(pk=7)
+    scholarship = Category_Item.objects.get(pk=3)
     scholar_notices = Notice.objects.filter(category=scholarship)
 
-    general = Category_Item.objects.get(pk=3)
+    general = Category_Item.objects.get(pk=2)
     general_notices = Notice.objects.filter(category=general)
 
 
@@ -87,6 +88,7 @@ def index(request):
         )
         email.content_subtype= 'html'
         email.send()
+    
     
     return render(request, "appMain/index.html", {
         "notices":notices,
